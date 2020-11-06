@@ -1,0 +1,20 @@
+<div class="container">
+    <form (ngSubmit)="onFormSubmit()"
+          [formGroup]="taskForm">
+        <div class="form-group">
+            <h3>Dodaj zadanie</h3>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Wpisz nazwę zadania"
+                   formControlName="titleInput">
+            <ng-container *ngIf="titleInput.invalid && (titleInput.dirty || titleInput.touched)"
+                          class="alert alert-danger">
+                <ng-container *ngIf="titleInput.errors.required">
+                    <small class="form-text text-muted">Pole wymagane</small>
+                </ng-container>
+            </ng-container>
+        </div>
+        <button type="submit"
+                class="btn btn-primary float-right">Zatwierdź</button>
+    </form>
+</div>
